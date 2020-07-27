@@ -10,7 +10,7 @@ CREATE TABLE departamento(
 
 CREATE TABLE trabajador(
   rut INT,
-  codigo_departamento INT NOT NULL,
+  codigo_departamento SMALLINT NOT NULL,
   nombre VARCHAR NOT NULL,
   direccion VARCHAR NOT NULL,
   PRIMARY KEY (rut),
