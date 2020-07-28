@@ -22,14 +22,6 @@ CREATE TABLE alumno(
   FOREIGN KEY (codigo_curso) REFERENCES curso(codigo)
 );
 
-CREATE TABLE prueba(
-  codigo SERIAL,
-  rut_alumno INT NOT NULL,
-  puntaje SMALLINT DEFAULT(0),
-  PRIMARY KEY (codigo),
-  FOREIGN KEY (rut_alumno) REFERENCES alumno(rut)
-);
-
 CREATE TABLE profesor(
   rut INT,
   codigo_departamento INT NOT NULL,
@@ -38,9 +30,13 @@ CREATE TABLE profesor(
   FOREIGN KEY (codigo_departamento) REFERENCES departamento(codigo)
 );
 
-CREATE TABLE prueba_profesor(
-  codigo_prueba INT NOT NULL,
+CREATE TABLE prueba(
+  codigo SERIAL,
+  rut_alumno INT NOT NULL,
   rut_profesor INT NOT NULL,
-  FOREIGN KEY (codigo_prueba) REFERENCES prueba(codigo),
+  puntaje SMALLINT DEFAULT(0),
+  PRIMARY KEY (codigo),
+  FOREIGN KEY (rut_alumno) REFERENCES alumno(rut),
   FOREIGN KEY (rut_profesor) REFERENCES profesor(rut)
 );
+
